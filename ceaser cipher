@@ -1,0 +1,48 @@
+def encrypt(s):
+    list=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    print(s)
+    for i in range(0,26):
+        if(list[i]==s):
+            if(i==23):
+                i=0
+                return(list[i])
+            elif(i==24):
+                i=1
+                return(list[i])
+            elif(i==25):
+                i=2
+                return(list[i])
+            else:
+                return(list[i+3])
+        
+def decrypt(s):
+      list=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+      print(s)
+      for i in range(0,26):
+          if(list[i]==s):
+              if(i==0):
+                  i=23
+                  return(list[i])
+              elif(i==1):
+                  i=24
+                  return(list[i])
+              elif(i==2):
+                  i=25
+                  return(list[i])
+              else:
+                  return(list[i-3])
+string=input("enter you string:")
+choice=int(input("enter 1 for encryption or 2 for decryption:"))
+le=len(string)
+i=0
+result=[]
+if(choice==1):
+    while(i<le):
+        result.append(encrypt(string[i]))
+        i+=1
+    print(result)
+if(choice==2):
+    while(i<le):
+        result.append(decrypt(string[i]))
+        i+=1
+    print(result)
